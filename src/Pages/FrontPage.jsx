@@ -1,6 +1,7 @@
 import { Button } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Circles } from "react-loader-spinner"; // Import the spinner component
 
 const FrontPage = () => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const FrontPage = () => {
   const handleClick = () => {
     setLoading(true);
     timeoutId = setTimeout(() => {
+      setLoading(false); // Ensure loading is set to false after the timeout
       navigate("/timetable");
     }, 1000);
   };
@@ -40,17 +42,26 @@ const FrontPage = () => {
             you towards achieving it step by step. Remember to stay focused,
             take breaks, and make time for self-care!
           </p>
-          <div className="mt-5">
-            <Button
-              gradientMonochrome="pink"
-              className={` text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 ${
-                loading ? "opacity-50 cursor-not-allowed" : "hover:bg-rosy"
-              } focus:outline-none focus:ring-2 focus:ring-blue-400`}
-              onClick={handleClick}
-              disabled={loading} // Disable the button if loading
-            >
-              {loading ? "Navigating..." : "Go to schedule"}
-            </Button>
+          <div className="mt-5 flex items-center justify-center">
+            {loading ? ( // Show spinner while loading
+              <Circles
+                height="50"
+                width="50"
+                color="#f00" // Customize the color if needed
+                ariaLabel="loading"
+              />
+            ) : (
+              <Button
+                gradientMonochrome="pink"
+                className={`text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 ${
+                  loading ? "opacity-50 cursor-not-allowed" : "hover:bg-rosy"
+                } focus:outline-none focus:ring-2 focus:ring-blue-400`}
+                onClick={handleClick}
+                disabled={loading} // Disable the button if loading
+              >
+                {loading ? "Navigating..." : "Go to schedule"}
+              </Button>
+            )}
           </div>
         </div>
 
