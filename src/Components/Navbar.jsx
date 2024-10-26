@@ -46,6 +46,7 @@ const Navbar = () => {
           <span
             className="text-2xl text-pink"
             style={{
+              color: "red",
               fontFamily: "'Tangerine', cursive",
               fontSize: "40px",
               fontWeight: "800",

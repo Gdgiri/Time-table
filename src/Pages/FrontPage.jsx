@@ -5,52 +5,61 @@ import { Circles } from "react-loader-spinner"; // Import the spinner component
 
 const FrontPage = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  let timeoutId;
+  const [loading, setLoading] = useState(true); // Start with loading as true
+  const [data, setData] = useState(null); // State to store fetched data
+
+  // Effect to simulate data fetching
+  useEffect(() => {
+    // Simulate data fetching with a timeout
+    const fetchData = async () => {
+      // Simulate an API call delay
+      await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate 2 seconds of loading
+      // Set your data here
+      setData({ /* Your data structure */ });
+      setLoading(false); // Set loading to false after fetching data
+    };
+
+    fetchData();
+  }, []);
 
   const handleClick = () => {
     setLoading(true);
-    timeoutId = setTimeout(() => {
-      setLoading(false); // Ensure loading is set to false after the timeout
+    const timeoutId = setTimeout(() => {
       navigate("/timetable");
     }, 1000);
+    return () => clearTimeout(timeoutId); // Cleanup
   };
-
-  // Cleanup function to clear the timeout if the component unmounts
-  useEffect(() => {
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-lavender p-8">
-      <div className="container mx-auto flex flex-col md:flex-row items-center bg-white shadow-2xl rounded-xl overflow-hidden">
-        {/* Left Side - Text Content */}
-        <div className="flex-1 p-8 text-left">
-          <h1 className="text-4xl font-bold text-rose mb-4">
-            Welcome to Your Daily Schedule, Giridharan
-          </h1>
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Your daily schedule is designed to help you maintain balance and
-            productivity. With a mix of dedicated work sessions, relaxation
-            breaks, and time for personal growth, you're set up for success each
-            day.
-          </p>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Start your day with a clear goal in mind and let your schedule guide
-            you towards achieving it step by step. Remember to stay focused,
-            take breaks, and make time for self-care!
-          </p>
-          <div className="mt-5 flex items-center justify-center">
-            {loading ? ( // Show spinner while loading
-              <Circles
-                height="50"
-                width="50"
-                color="#f00" // Customize the color if needed
-                ariaLabel="loading"
-              />
-            ) : (
+      {loading ? ( // Show spinner while loading
+        <div className="flex items-center justify-center min-h-screen">
+          <Circles
+            height="50"
+            width="50"
+            color="#f00" // Customize the color if needed
+            ariaLabel="loading"
+          />
+        </div>
+      ) : (
+        <div className="container mx-auto flex flex-col md:flex-row items-center bg-white shadow-2xl rounded-xl overflow-hidden">
+          {/* Left Side - Text Content */}
+          <div className="flex-1 p-8 text-left">
+            <h1 className="text-4xl font-bold text-rose mb-4">
+              Welcome to Your Daily Schedule, Giridharan
+            </h1>
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Your daily schedule is designed to help you maintain balance and
+              productivity. With a mix of dedicated work sessions, relaxation
+              breaks, and time for personal growth, you're set up for success each
+              day.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Start your day with a clear goal in mind and let your schedule guide
+              you towards achieving it step by step. Remember to stay focused,
+              take breaks, and make time for self-care!
+            </p>
+            <div className="mt-5 flex items-center justify-center">
               <Button
                 gradientMonochrome="pink"
                 className={`text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 ${
@@ -61,19 +70,19 @@ const FrontPage = () => {
               >
                 {loading ? "Navigating..." : "Go to schedule"}
               </Button>
-            )}
+            </div>
+          </div>
+
+          {/* Right Side - Image Content */}
+          <div className="flex-1 p-5">
+            <img
+              src="https://github.com/user-attachments/assets/8601cf4f-e44a-4793-a671-294366f56026"
+              alt="Daily Schedule Illustration"
+              className="w-full h-full object-cover rounded-r-xl shadow-xl transform hover:scale-105 transition-transform duration-300"
+            />
           </div>
         </div>
-
-        {/* Right Side - Image Content */}
-        <div className="flex-1 p-5">
-          <img
-            src="https://github.com/user-attachments/assets/8601cf4f-e44a-4793-a671-294366f56026"
-            alt="Daily Schedule Illustration"
-            className="w-full h-full object-cover rounded-r-xl shadow-xl transform hover:scale-105 transition-transform duration-300"
-          />
-        </div>
-      </div>
+      )}
     </div>
   );
 };
