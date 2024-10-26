@@ -102,19 +102,19 @@ const Navbar = () => {
                 onClick={() => handleLinkClick("home")}
                 className={`${
                   activeLink === "home"
-                    ? "bg-red-100 text-red-600 font-bold px-4 py-2 rounded-lg shadow-lg"
-                    : "text-gray-700 hover:text-red-500"
+                    ? "bg-red-100 text-rose-600 font-bold px-4 py-2 rounded-lg shadow-lg"
+                    : "text-gray-700 hover:text-rosy"
                 } text-center`}
               >
                 Home
               </Link>
               <Link
-                to="/about"
+                to="/timetable"
                 onClick={() => handleLinkClick("about")}
                 className={`${
                   activeLink === "about"
-                    ? "bg-red-100 text-red-600 font-bold px-4 py-2 rounded-lg shadow-lg"
-                    : "text-gray-700 hover:text-red-500"
+                    ? "bg-red-100 text-rose font-bold px-4 py-2 rounded-lg shadow-lg"
+                    : "text-gray-700 hover:text-rosy"
                 } text-center`}
               >
                 Schedule
