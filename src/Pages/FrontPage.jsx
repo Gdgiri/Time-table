@@ -6,7 +6,6 @@ import { Circles } from "react-loader-spinner"; // Import the spinner component
 const FrontPage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true); // Start with loading as true
-  const [data, setData] = useState(null); // State to store fetched data
 
   // Effect to simulate data fetching
   useEffect(() => {
@@ -15,7 +14,7 @@ const FrontPage = () => {
       // Simulate an API call delay
       await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate 2 seconds of loading
       // Set your data here
-      setData({ /* Your data structure */ });
+
       setLoading(false); // Set loading to false after fetching data
     };
 
@@ -51,13 +50,13 @@ const FrontPage = () => {
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
               Your daily schedule is designed to help you maintain balance and
               productivity. With a mix of dedicated work sessions, relaxation
-              breaks, and time for personal growth, you're set up for success each
-              day.
+              breaks, and time for personal growth, you're set up for success
+              each day.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Start your day with a clear goal in mind and let your schedule guide
-              you towards achieving it step by step. Remember to stay focused,
-              take breaks, and make time for self-care!
+              Start your day with a clear goal in mind and let your schedule
+              guide you towards achieving it step by step. Remember to stay
+              focused, take breaks, and make time for self-care!
             </p>
             <div className="mt-5 flex items-center justify-center">
               <Button
