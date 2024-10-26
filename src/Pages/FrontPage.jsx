@@ -6,15 +6,14 @@ import { Circles } from "react-loader-spinner"; // Import the spinner component
 const FrontPage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true); // Start with loading as true
+  const [imageLoading, setImageLoading] = useState(true); // State to track image loading
 
   // Effect to simulate data fetching
   useEffect(() => {
     // Simulate data fetching with a timeout
     const fetchData = async () => {
       // Simulate an API call delay
-      await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate 2 seconds of loading
-      // Set your data here
-
+      await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate 3 seconds of loading
       setLoading(false); // Set loading to false after fetching data
     };
 
@@ -27,6 +26,10 @@ const FrontPage = () => {
       navigate("/timetable");
     }, 1000);
     return () => clearTimeout(timeoutId); // Cleanup
+  };
+
+  const handleImageLoad = () => {
+    setImageLoading(false); // Set image loading to false when the image is loaded
   };
 
   return (
@@ -74,10 +77,23 @@ const FrontPage = () => {
 
           {/* Right Side - Image Content */}
           <div className="flex-1 p-5">
+            {imageLoading && (
+              <div className="flex items-center justify-center min-h-screen">
+                <Circles
+                  height="50"
+                  width="50"
+                  color="#f00" // Customize the color if needed
+                  ariaLabel="loading"
+                />
+              </div>
+            )}
             <img
               src="https://github.com/user-attachments/assets/8601cf4f-e44a-4793-a671-294366f56026"
               alt="Daily Schedule Illustration"
-              className="w-full h-full object-cover rounded-r-xl shadow-xl transform hover:scale-105 transition-transform duration-300"
+              className={`w-full h-full object-cover rounded-r-xl shadow-xl transform transition-transform duration-300 ${
+                imageLoading ? "hidden" : "block"
+              }`} // Hide image until loaded
+              onLoad={handleImageLoad} // Set image loading to false on load
             />
           </div>
         </div>
