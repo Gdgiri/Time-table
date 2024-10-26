@@ -10,7 +10,7 @@ const FrontPage = () => {
   const handleClick = () => {
     setLoading(true);
     timeoutId = setTimeout(() => {
-      navigate("/schedule");
+      navigate("/timetable");
     }, 1000);
   };
 
