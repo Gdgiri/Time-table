@@ -13,7 +13,7 @@ const FrontPage = () => {
     // Simulate data fetching with a timeout
     const fetchData = async () => {
       // Simulate an API call delay
-      await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate 3 seconds of loading
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate 3 seconds of loading
       setLoading(false); // Set loading to false after fetching data
     };
 
