@@ -23,6 +23,18 @@ const timetableData = [
 ];
 
 const Timetable = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate data fetching with a timeout
+    const fetchData = async () => {
+      // Simulate an API call delay
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate 3 seconds of loading
+      setLoading(false); // Set loading to false after fetching data
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className="container mx-auto mt-5 p-4">
       <h2 className="text-4xl font-semibold mb-4 text-pinker text-center">
