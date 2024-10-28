@@ -3,24 +3,30 @@ import React from "react";
 import { Table } from "flowbite-react";
 
 const timetableData = [
-  { time: "8:00 - 8:30 AM", activity: "Wake up, Morning Routine (bath, pray)" },
-  { time: "8:30 - 9:00 AM", activity: "Breakfast" },
-  { time: "9:00 - 10:00 AM", activity: "Study Frontend (React, TailwindCSS)" },
-  { time: "10:00 - 1:00 PM", activity: "Online Class" },
-  { time: "1:00 - 1:30 PM", activity: "Lunch" },
-  { time: "1:30 - 2:30 PM", activity: "Study Backend (Node.js, Express)" },
-  { time: "2:30 - 3:30 PM", activity: "Study Firebase" },
-  { time: "3:30 - 4:00 PM", activity: "Free Time / Relaxation" },
+  { time: "8:00 AM", activity: "Wake Up" },
+  { time: "8:00 - 8:30 AM", activity: "Morning Routine (Coffee, Food, Bath, Pray)" },
+  { time: "8:30 - 9:00 AM", activity: "Study Session 1 (Focus on theory/concepts)" },
+  { time: "9:00 - 10:00 AM", activity: "Study Session 2 (Problem Solving/Practice)" },
+  { time: "10:00 AM - 1:00 PM", activity: "Online Class" },
+  { time: "1:00 - 1:30 PM", activity: "Lunch Break" },
+  { time: "1:30 - 2:30 PM", activity: "Project Work (Hands-on development)" },
+  { time: "2:30 - 3:00 PM", activity: "Break/Rest" },
+  { time: "3:00 - 4:00 PM", activity: "Study Session 3 (Learning new topics)" },
   { time: "4:00 - 4:30 PM", activity: "Workout" },
-  { time: "4:30 - 5:00 PM", activity: "Evening Coffee" },
-  { time: "5:00 - 6:00 PM", activity: "Study Socket.io" },
-  { time: "6:00 - 7:00 PM", activity: "Problem Solving / Practice" },
-  { time: "7:00 - 8:00 PM", activity: "Dinner" },
-  { time: "8:00 - 9:30 PM", activity: "Study MERN Stack" },
-  { time: "9:30 - 10:30 PM", activity: "Review and Prep for Next Day" },
-  { time: "10:30 - 11:00 PM", activity: "Wind down, relax" },
+  { time: "4:30 - 5:00 PM", activity: "Afternoon Break (Coffee, Relax)" },
+  { time: "5:00 - 6:30 PM", activity: "Study Session 4 (Problem Solving Practice)" },
+  { time: "6:30 - 7:00 PM", activity: "Dinner/Evening Meal" },
+  { time: "7:00 - 9:00 PM", activity: "Project Work (Focus on finalizing tasks)" },
+  { time: "9:00 - 9:30 PM", activity: "Break (Relax, Refresh)" },
+  { time: "9:30 - 10:30 PM", activity: "Wind Down (Prepare for sleep)" },
   { time: "11:00 PM", activity: "Sleep" },
 ];
+
+console.log(timetableData);
+
+
+console.log(timetableData);
+
 
 const Timetable = () => {
     
